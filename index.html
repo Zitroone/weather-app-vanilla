@@ -30,17 +30,16 @@
           <div class="col-5">
             <form id="search-form">
               <input type="text" placeholder="City" autofocus id="search-bar" required>
-              <input type="submit" id="search-button" class="btn btn-outline-secondary">
-              <!-- <img src="media/Compass.svg" alt="compass" id="current" /> -->
+              <input type="submit" value="Search" id="search-button" class="btn btn-outline-secondary">
+              <img src="media/Compass.svg" alt="compass" id="compass" />
             </form>
 
-            <ul>  
-              <li id="date">August 3, 2021</li>
-              <li id="city">Fulda</li>
-              <li id="day-time">Tuesday 07:46PM</li>
-              <br>
+            <ul class="location-data">  
+              <li id="date"><h3>August 3, 2021</h3></li>
+              <li id="city"><h1>Fulda, DE</h1></li>
+              <li id="day-time"><h2>Tuesday 07:46PM</h2></li>
               <li id="humidity">Humidity: 44%</li>
-              <li id="wind-speed">13 km/h</li>
+              <li id="wind-speed">Wind: 13 km/h</li>
             </ul>
 
           </div>
@@ -48,7 +47,7 @@
 
             <div class="row">
               <div class="col-5">
-                <ul>
+                <ul class="temperature-data">
                   <li class="celsius">27°C</li>
                   <li class="fahrenheit">80°F</li>
                   <li class="description">Cloudy</li>

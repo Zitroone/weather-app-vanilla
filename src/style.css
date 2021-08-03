@@ -7,6 +7,9 @@ body {
   );
 }
 
+input {
+    font-weight: 900;
+}
 
 ul {
     margin: 0;
@@ -26,6 +29,8 @@ li {
     margin-top: 50px;
     max-width: 1100px;
     border-radius: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
         
 }
     
@@ -38,4 +43,59 @@ li {
     background-image: url("sky.jpg");
     background-size: 1100px;
     padding: 0;
+}
+
+#compass {
+  width: 45px;
+  padding-bottom: 5px;
+}
+
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+h2, h3 {
+
+    opacity: 80%;   
+}
+
+h3 {
+    font-size: 20px;
+}
+
+.location-data {
+    position: relative;
+    top: 190px;
+    left: 20px;
+}
+
+#search-bar {
+  margin-top: 50px;
+  margin-left: 20px;
+  width: 250px;
+  border-radius: 4px;
+  border: 2px double rgba(54, 10, 90, 0.5);
+}
+
+#search-button {
+  margin-left: 6px;
+  line-height: 16px;
+  margin-bottom: 3px;
+  font-weight: bold;
+  background: rgba(255, 157, 240, 0.2);
+  color: #47424e;
+  border-color: #47424e;
+  border: 2px solid rgba(71, 66, 78, 0.6);
+}
+
+#search-button:hover {
+  opacity: 80%;
+  background-color: rgba(71, 66, 78, 0.4);
+  border: 2px solid rgba(255, 157, 240, 0.2);
+}
+
+#humidity, 
+#wind-speed {
+    font-weight: bold;
 }
