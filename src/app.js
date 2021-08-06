@@ -172,13 +172,19 @@ function displayTemperature(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 }
 
-function getData(event) {
-  event.preventDefault();
-  let searchedCity = document.querySelector("#search-bar").value;
+function search(city) {
   let apiKey = "5e875644b7a30ea03214c53a00044885";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
-  //   console.log(apiUrl);
 }
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let searchedCity = document.querySelector("#search-bar");
+  search(searchedCity.value);
+}
+
+search("Fulda");
+
 let searchTemp = document.querySelector("#search-form");
-searchTemp.addEventListener("submit", getData);
+searchTemp.addEventListener("submit", handleSubmit);
