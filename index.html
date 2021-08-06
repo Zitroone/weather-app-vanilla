@@ -34,23 +34,24 @@
               <img src="media/Compass.svg" alt="compass" id="compass" />
             </form>
 
-            <ul class="location-data">  
-              <li id="date"><h3>August 3, 2021</h3></li>
-              <li id="city"><h1>Fulda, DE</h1></li>
-              <li id="day-time"><h2>Tuesday 07:46PM</h2></li>
+            <div class="location-data">  
+              <h3 id="date">August 3, 2021</h3>
+              <li id="city"><h1>Fulda, DE</h1>
+              <li id="day-time"><h2>Tuesday 07:46PM</h2>
               <li id="humidity">Humidity: 44%</li>
               <li id="wind-speed">Wind: 13 km/h</li>
             </ul>
 
+            </div>
           </div>
           <div class="col-7">
 
             <div class="row">
               <div class="col-5">
-                <ul class="temperature-data">
-                  <li class="celsius">27°C</li>
-                  <li class="fahrenheit">80°F</li>
-                  <li class="description">Cloudy</li>
+                <ul id="temperature-data">
+                  <li id="celsius">27°C</li>
+                  <li id="fahrenheit">80°F</li>
+                  <li id="description">Cloudy</li>
                 </ul>
               </div>
               <div class="col-7">
@@ -61,12 +62,12 @@
               <p>weather forecast</p>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
-        <small class="footer"><a href="https://github.com/Zitroone/weather-app" target="_blank">Open-source code</a>written by Melanie Kött ✨
-        </small>
-    </div>
+
+      <small class="footer"><a href="https://github.com/Zitroone/weather-app" target="_blank">Open-source code</a>written by Melanie Kött ✨
+      </small>
 
     <script src="src/app.js"></script>
 </body>

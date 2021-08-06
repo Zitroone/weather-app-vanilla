@@ -99,3 +99,27 @@ h3 {
 #wind-speed {
     font-weight: bold;
 }
+
+#celsius {
+    font-size: 100px;
+    line-height: 100px;
+
+}
+
+#fahrenheit,
+#description {
+    font-size: 40px;
+    line-height: 40px;
+    opacity: 80%;
+}
+
+#temperature-data {
+    margin-top: 125px;
+}
+
+#weather-icon {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+}
