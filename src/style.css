@@ -1,6 +1,6 @@
 body {
-    font-family: "Thasadith", sans-serif;
-    background: linear-gradient(
+  font-family: "Thasadith", sans-serif;
+  background: linear-gradient(
     109.6deg,
     rgb(245, 239, 249) 30.1%,
     rgb(207, 211, 236) 100.2%
@@ -8,41 +8,38 @@ body {
 }
 
 input {
-    font-weight: 900;
+  font-weight: 900;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
-    
-    
+  margin: 0;
+  padding: 0;
 }
 
 li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .border {
-    height: 550px;
-    margin-top: 50px;
-    max-width: 1100px;
-    border-radius: 20px;
-    padding-left: 12px;
-    padding-right: 12px;
-        
+  height: 550px;
+  margin-top: 50px;
+  max-width: 1100px;
+  border-radius: 20px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
-    
+
 .container {
-    height: 550px;
-    margin-top: 50px;
-    max-width: 1100px;
-    border-radius: 20px;
-    box-shadow: -6px 6px 54px rgb(0 0 0 / 20%);
-    background-image: url("sky.jpg");
-    background-size: 1100px;
-    padding: 0;
+  height: 550px;
+  margin-top: 50px;
+  max-width: 1100px;
+  border-radius: 20px;
+  box-shadow: -6px 6px 54px rgb(0 0 0 / 20%);
+  background-image: url("sky.jpg");
+  background-size: 1100px;
+  padding: 0;
 }
 
 #compass {
@@ -50,24 +47,25 @@ li {
   padding-bottom: 5px;
 }
 
-
-h1, h2, h3 {
-    font-weight: bold;
+h1,
+h2,
+h3 {
+  font-weight: bold;
 }
 
-h2, h3 {
-
-    opacity: 80%;   
+h2,
+h3 {
+  opacity: 80%;
 }
 
 h3 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .location-data {
-    position: relative;
-    top: 190px;
-    left: 20px;
+  position: relative;
+  top: 190px;
+  left: 20px;
 }
 
 #search-bar {
@@ -95,31 +93,88 @@ h3 {
   border: 2px solid rgba(255, 157, 240, 0.2);
 }
 
-#humidity, 
+#humidity,
 #wind-speed {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #celsius {
-    font-size: 100px;
-    line-height: 100px;
-
+  font-size: 100px;
+  line-height: 100px;
 }
 
 #fahrenheit,
 #description {
-    font-size: 40px;
-    line-height: 40px;
-    opacity: 80%;
+  font-size: 40px;
+  line-height: 40px;
+  opacity: 80%;
 }
 
 #temperature-data {
-    margin-top: 125px;
+  margin-top: 125px;
 }
 
 #weather-icon {
-    width: 300px;
-    display: block;
-    margin: 0 auto;
-    margin-top: 50px;
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.footer {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.weather-forecast {
+  text-align: center;
+  position: relative;
+  top: 45px;
+  margin: 0 auto;
+}
+
+.forecast {
+  font-weight: bold;
+  background-color: rgba(250, 212, 246, 0.3);
+  border-radius: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 2px;
+}
+
+.small-weather-icon {
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+small {
+  opacity: 80%;
+  line-height: 10px;
+}
+
+.forecast-temp {
+  font-size: 16px;
+}
+
+#fahrenheit-link,
+#celsius-link {
+  text-decoration: none;
+  color: #212529;
+}
+
+a#fahrenheit-link:hover,
+a#celsius-link:hover {
+  text-decoration: none;
+  color: #4a3364;
+}
+
+a.celsius-link,
+a.fahrenheit-link {
+  text-decoration: none;
+  color: #9294e1;
+  font-weight: bold;
+  display: inline;
+  font-size: 14px;
 }

@@ -1,74 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeatherApp</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="src/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeatherApp</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
+
 <body>
 
-    <div class="container ">
+  <div class="container ">
 
-      <div class="weatherApp border">
+    <div class="weatherApp border">
 
-        <div class="row">
-          <div class="col-5">
-            <form id="search-form">
-              <input type="text" placeholder="City" autofocus id="search-bar" required>
-              <input type="submit" value="Search" id="search-button" class="btn btn-outline-secondary">
-              <img src="media/Compass.svg" alt="compass" id="compass" />
-            </form>
+      <div class="row">
+        <div class="col-5">
+          <form id="search-form">
+            <input type="text" placeholder="City" autofocus id="search-bar" required>
+            <input type="submit" value="Search" id="search-button" class="btn btn-outline-secondary">
+            <img src="media/Compass.svg" alt="compass" id="compass" />
+          </form>
 
-            <div class="location-data">  
-              <h3 id="date">August 3, 2021</h3>
-              <li id="city"><h1>Fulda, DE</h1>
-              <li id="day-time"><h2>Tuesday 07:46PM</h2>
-              <li id="humidity">Humidity: 44%</li>
-              <li id="wind-speed">Wind: 13 km/h</li>
+          <div class="location-data">
+            <h3 id="date">August 3, 2021</h3>
+            <li id="city">
+              <h1>Fulda, DE</h1>
+            <li id="day-time">
+              <h2>Tuesday 07:46PM</h2>
+            <li id="humidity">Humidity: 44%</li>
+            <li id="wind-speed">Wind: 13 km/h</li>
             </ul>
 
-            </div>
           </div>
-          <div class="col-7">
-
-            <div class="row">
-              <div class="col-5">
-                <ul id="temperature-data">
-                  <li id="celsius">27°C</li>
-                  <li id="fahrenheit">80°F</li>
-                  <li id="description">Cloudy</li>
-                </ul>
-              </div>
-              <div class="col-7">
-                <img src="media/10d.svg" alt="cloud" id="weather-icon" />
-              </div>
-            </div>
-            <div class="row">
-              <p>weather forecast</p>
-            </div>
-          </div>
-
         </div>
-      </div>
+        <div class="col-7">
 
-      <small class="footer"><a href="https://github.com/Zitroone/weather-app" target="_blank">Open-source code</a>written by Melanie Kött ✨
-      </small>
+          <div class="row">
+            <div class="col-5">
+              <ul id="temperature-data">
+                <li id="celsius"><span id="celsius-today">27</span><a href="#" id="celsius-link">°C</a></li>
+                <li id="fahrenheit"><span id="fahrenheit-today">80</span><a href="#" id="fahrenheit-link">°F</a></li>
+                <li id="description">Cloudy</li>
+              </ul>
+            </div>
+            <div class="col-7">
+              <img src="media/10d.svg" alt="cloud" id="weather-icon" />
+            </div>
+          </div>
+          <div class="row weather-forecast">
+            <div class="col-2 forecast">
+              <div class="weather-forecast-date">Mon</div>
+              <img src="media/rain-cloud.svg" alt="rain" class="small-weather-icon" />
+              <span class="forecast-temp">21</span>
+              <a href="#" class="celsius-link">°C </a>|<a href="#" class="fahrenheit-link">
+                °F</a>
+              <br />
+              <small>Rainy</small>
+            </div>
+            <div class="col-2 forecast">
+              <div class="weather-forecast-date">Tue</div>
+              <img src="media/sun-cloud.svg" alt="sun-cloud" class="small-weather-icon" />
+              <span class="forecast-temp">25</span>
+              <a href="#" class="celsius-link">°C </a>|<a href="#" class="fahrenheit-link">
+                °F</a><br />
+              <small>Cloudy</small>
+            </div>
+            <div class="col-2 forecast">
+              <div class="weather-forecast-date">Wed</div>
+              <img src="media/lightning-cloud.svg" alt="lightning" class="small-weather-icon" />
+              <span class="forecast-temp">30</span>
+              <a href="#" class="celsius-link">°C </a>|<a href="#" class="fahrenheit-link">
+                °F</a><br />
+              <small>Stormy</small>
+            </div>
+            <div class="col-2 forecast">
+              <div class="weather-forecast-date">Thu</div>
+              <img src="media/rain-cloud.svg" alt="rain" class="small-weather-icon" />
+              <span class="forecast-temp">14</span>
+              <a href="#" class="celsius-link">°C </a>|<a href="#" class="fahrenheit-link">
+                °F</a><br />
+              <small>Rainy</small>
+            </div>
+            <div class="col-2 forecast">
+              <div class="weather-forecast-date">Fri</div>
+              <img src="media/rain-cloud.svg" alt="rain" class="small-weather-icon" />
+              <span class="forecast-temp">22</span>
+              <a href="#" class="celsius-link">°C </a>|<a href="#" class="fahrenheit-link">
+                °F</a><br />
+              <small>Rainy</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <small class="footer"><a href="https://github.com/Zitroone/weather-app" target="_blank">Open-source code</a> written
+      by Melanie Kött ✨
+    </small>
 
     <script src="src/app.js"></script>
 </body>
+
 </html>
