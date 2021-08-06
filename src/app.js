@@ -149,6 +149,7 @@ function displayTemperature(response) {
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
   let icon = document.querySelector("#weather-icon");
+  let smallIcon = document.querySelector(".small-weather-icon");
 
   let city = response.data.name;
   let country = response.data.sys.country;
@@ -166,10 +167,9 @@ function displayTemperature(response) {
 
   wind.innerHTML = Number(Math.round(response.data.wind.speed * 3.6));
 
-  // icon.setAttribute = ("src", `media/01d.svg`);
-  // icon.setAttribute = ("src", `media/${response.data.weather[0].icon}.svg`);
-  // icon.setAttribute = ("alt", response.data.weather[0].description);
-  //   console.log(response.data.weather[0].icon);
+  icon.setAttribute("src", `media/01d.svg`);
+  icon.setAttribute("src", `media/${response.data.weather[0].icon}.svg`);
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function getData(event) {
