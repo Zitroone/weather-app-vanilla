@@ -93,7 +93,7 @@ h3 {
   border: 2px solid rgba(255, 157, 240, 0.2);
 }
 
-#humidity,
+#humidity-text,
 #wind-speed {
   font-weight: bold;
 }
