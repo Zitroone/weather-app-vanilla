@@ -54,91 +54,6 @@ dayAndTime.innerHTML = currentDay(today);
 let date = document.querySelector("#date");
 date.innerHTML = currentDate(today);
 
-// Unit change
-function changeUnitFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElementCelsius = document.querySelector("#celsius-today");
-  let unitCelsius = document.querySelector("#celsius-link");
-  let temperatureToFahrenheit = temperatureElementCelsius.innerHTML;
-  temperatureToFahrenheit = Number(temperatureToFahrenheit);
-  temperatureElementCelsius.innerHTML = Math.round(
-    (temperatureToFahrenheit * 9) / 5 + 32
-  );
-  unitCelsius.innerHTML = "°F";
-
-  let temperatureElementFahrenheit =
-    document.querySelector("#fahrenheit-today");
-  let unitFahrenheit = document.querySelector("#fahrenheit-link");
-  let temperatureToCelsius = temperatureElementFahrenheit.innerHTML;
-  temperatureToCelsius = Number(temperatureToCelsius);
-  temperatureElementFahrenheit.innerHTML = Math.round(
-    ((temperatureToCelsius - 32) * 5) / 9
-  );
-  unitFahrenheit.innerHTML = "°C";
-}
-function changeUnitCelsius(event) {
-  event.preventDefault();
-  let temperatureElementCelsius = document.querySelector("#celsius-today");
-  let unitCelsius = document.querySelector("#celsius-link");
-  let temperatureToFahrenheit = temperatureElementCelsius.innerHTML;
-  temperatureToFahrenheit = Number(temperatureToFahrenheit);
-  temperatureElementCelsius.innerHTML = Math.round(
-    ((temperatureToFahrenheit - 32) * 5) / 9
-  );
-  unitCelsius.innerHTML = "°C";
-
-  let temperatureElementFahrenheit =
-    document.querySelector("#fahrenheit-today");
-  let unitFahrenheit = document.querySelector("#fahrenheit-link");
-  let temperatureToCelsius = temperatureElementFahrenheit.innerHTML;
-  temperatureToCelsius = Number(temperatureToCelsius);
-  temperatureElementFahrenheit.innerHTML = Math.round(
-    (temperatureToCelsius * 9) / 5 + 32
-  );
-  unitFahrenheit.innerHTML = "°F";
-}
-function changeUnitForecastFahrenheit(event) {
-  event.preventDefault();
-
-  let temperatureToFahrenheit = document
-    .querySelectorAll(".forecast-temp")
-    .forEach((changeUnit) => {
-      let temp = changeUnit.innerHTML;
-      temp = Number(temp);
-      changeUnit.innerHTML = Math.round((temp * 9) / 5 + 32);
-    });
-  return temperatureToFahrenheit;
-}
-function changeUnitForecastCelsius(event) {
-  event.preventDefault();
-
-  let temperatureToCelsius = document
-    .querySelectorAll(".forecast-temp")
-    .forEach((changeUnit) => {
-      let temp = changeUnit.innerHTML;
-      temp = Number(temp);
-      changeUnit.innerHTML = Math.round(((temp - 32) * 5) / 9);
-    });
-  return temperatureToCelsius;
-}
-let fahrenheitLink = document.querySelector("#celsius-link");
-fahrenheitLink.addEventListener("click", changeUnitFahrenheit);
-let celsiusLink = document.querySelector("#fahrenheit-link");
-celsiusLink.addEventListener("click", changeUnitCelsius);
-
-document
-  .querySelectorAll(".fahrenheit-link")
-  .forEach((fahrenheitForecastLink) => {
-    fahrenheitForecastLink.addEventListener(
-      "click",
-      changeUnitForecastFahrenheit
-    );
-  });
-
-document.querySelectorAll(".celsius-link").forEach((celsiusForecastLink) => {
-  celsiusForecastLink.addEventListener("click", changeUnitForecastCelsius);
-});
-
 //API search
 
 function displayTemperature(response) {
@@ -155,7 +70,10 @@ function displayTemperature(response) {
   let country = response.data.sys.country;
   name.innerHTML = `${city}, ${country}`;
 
-  let temperature = Number(Math.round(response.data.main.temp));
+  celsiusTemperature = response.data.main.temp;
+  fahrenheitTemperature = response.data.main.temp;
+
+  let temperature = Number(Math.round(celsiusTemperature));
   celsius.innerHTML = temperature;
 
   temperature = Math.round((temperature * 9) / 5 + 32);
@@ -184,7 +102,89 @@ function handleSubmit(event) {
   search(searchedCity.value);
 }
 
-search("Fulda");
-
 let searchTemp = document.querySelector("#search-form");
 searchTemp.addEventListener("submit", handleSubmit);
+
+// Unit change
+function changeUnitFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElementCelsius = document.querySelector("#celsius-today");
+  let unitCelsius = document.querySelector("#celsius-link");
+  temperatureElementCelsius.innerHTML = Number(
+    Math.round((celsiusTemperature * 9) / 5 + 32)
+  );
+  unitCelsius.innerHTML = "°F";
+
+  let temperatureElementFahrenheit =
+    document.querySelector("#fahrenheit-today");
+  let unitFahrenheit = document.querySelector("#fahrenheit-link");
+  temperatureElementFahrenheit.innerHTML = Number(
+    Math.round(fahrenheitTemperature)
+  );
+  unitFahrenheit.innerHTML = "°C";
+}
+
+function changeUnitCelsius(event) {
+  event.preventDefault();
+  let temperatureElementCelsius = document.querySelector("#celsius-today");
+  let unitCelsius = document.querySelector("#celsius-link");
+  temperatureElementCelsius.innerHTML = Number(
+    Math.round(fahrenheitTemperature)
+  );
+  unitCelsius.innerHTML = "°C";
+
+  let temperatureElementFahrenheit =
+    document.querySelector("#fahrenheit-today");
+  let unitFahrenheit = document.querySelector("#fahrenheit-link");
+  temperatureElementFahrenheit.innerHTML = Number(
+    Math.round((celsiusTemperature * 9) / 5 + 32)
+  );
+  unitFahrenheit.innerHTML = "°F";
+}
+function changeUnitForecastFahrenheit(event) {
+  event.preventDefault();
+
+  let temperatureToFahrenheit = document
+    .querySelectorAll(".forecast-temp")
+    .forEach((changeUnit) => {
+      let temp = changeUnit.innerHTML;
+      temp = Number(temp);
+      changeUnit.innerHTML = Math.round((temp * 9) / 5 + 32);
+    });
+  return temperatureToFahrenheit;
+}
+function changeUnitForecastCelsius(event) {
+  event.preventDefault();
+
+  let temperatureToCelsius = document
+    .querySelectorAll(".forecast-temp")
+    .forEach((changeUnit) => {
+      let temp = changeUnit.innerHTML;
+      temp = Number(temp);
+      changeUnit.innerHTML = Math.round(((temp - 32) * 5) / 9);
+    });
+  return temperatureToCelsius;
+}
+
+let fahrenheitLink = document.querySelector("#celsius-link");
+fahrenheitLink.addEventListener("click", changeUnitFahrenheit);
+let celsiusLink = document.querySelector("#fahrenheit-link");
+celsiusLink.addEventListener("click", changeUnitCelsius);
+
+document
+  .querySelectorAll(".fahrenheit-link")
+  .forEach((fahrenheitForecastLink) => {
+    fahrenheitForecastLink.addEventListener(
+      "click",
+      changeUnitForecastFahrenheit
+    );
+  });
+
+document.querySelectorAll(".celsius-link").forEach((celsiusForecastLink) => {
+  celsiusForecastLink.addEventListener("click", changeUnitForecastCelsius);
+});
+
+let celsiusTemperature = null;
+let fahrenheitTemperature = null;
+
+search("Fulda");
