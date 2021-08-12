@@ -121,9 +121,9 @@ function changeUnitFahrenheit(event) {
   temperatureElementFahrenheit.innerHTML = Number(
     Math.round(fahrenheitTemperature)
   );
+
   unitFahrenheit.innerHTML = "°C";
 }
-
 function changeUnitCelsius(event) {
   event.preventDefault();
   let temperatureElementCelsius = document.querySelector("#celsius-today");
