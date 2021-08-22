@@ -54,6 +54,35 @@ dayAndTime.innerHTML = currentDay(today);
 let date = document.querySelector("#date");
 date.innerHTML = currentDate(today);
 
+//Forecast
+
+function displayForecast(day) {
+  let forecastElement = document.querySelector(".weather-forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2 forecast">
+              <div class="weather-forecast-date">${day}</div>
+              <img src="media/rain-cloud.svg" alt="rain" class="small-weather-icon" />
+              <span class="forecast-temp">21</span>
+              <a href="#" class="celsius-link">°C </a>|<a href="#" class="fahrenheit-link">
+                °F</a>
+              <br />
+              <small>Rainy</small>
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
+displayForecast(today);
 //API search
 
 function displayTemperature(response) {
