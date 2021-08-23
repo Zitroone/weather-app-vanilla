@@ -81,9 +81,7 @@ function displayForecast(response) {
               }.svg" alt="rain" class="small-weather-icon" />
               <span class="forecast-temp">${Math.round(
                 forecastDay.temp.max
-              )}</span>
-              <a href="#" class="celsius-link">°C </a>|<a href="#" class="fahrenheit-link">
-                °F</a>
+              )}</span><span class="forecast-unit"> °C</span>
               <br />
               <small>Rainy</small>
             </div>`;
@@ -192,48 +190,11 @@ function changeUnitCelsius(event) {
   );
   unitFahrenheit.innerHTML = "°F";
 }
-function changeUnitForecastFahrenheit(event) {
-  event.preventDefault();
-
-  let temperatureToFahrenheit = document
-    .querySelectorAll(".forecast-temp")
-    .forEach((changeUnit) => {
-      let temp = changeUnit.innerHTML;
-      temp = Number(temp);
-      changeUnit.innerHTML = Math.round((temp * 9) / 5 + 32);
-    });
-  return temperatureToFahrenheit;
-}
-function changeUnitForecastCelsius(event) {
-  event.preventDefault();
-
-  let temperatureToCelsius = document
-    .querySelectorAll(".forecast-temp")
-    .forEach((changeUnit) => {
-      let temp = changeUnit.innerHTML;
-      temp = Number(temp);
-      changeUnit.innerHTML = Math.round(((temp - 32) * 5) / 9);
-    });
-  return temperatureToCelsius;
-}
 
 let fahrenheitLink = document.querySelector("#celsius-link");
 fahrenheitLink.addEventListener("click", changeUnitFahrenheit);
 let celsiusLink = document.querySelector("#fahrenheit-link");
 celsiusLink.addEventListener("click", changeUnitCelsius);
-
-document
-  .querySelectorAll(".fahrenheit-link")
-  .forEach((fahrenheitForecastLink) => {
-    fahrenheitForecastLink.addEventListener(
-      "click",
-      changeUnitForecastFahrenheit
-    );
-  });
-
-document.querySelectorAll(".celsius-link").forEach((celsiusForecastLink) => {
-  celsiusForecastLink.addEventListener("click", changeUnitForecastCelsius);
-});
 
 let celsiusTemperature = null;
 let fahrenheitTemperature = null;
